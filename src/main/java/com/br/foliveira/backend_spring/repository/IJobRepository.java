@@ -7,6 +7,6 @@ import org.springframework.stereotype.Repository;
 import com.br.foliveira.backend_spring.model.Job;
 
 @Repository
-public interface JobRepository extends JpaRepository<Job, Long>{
+public interface IJobRepository extends JpaRepository<Job, Long>{
 	List<Job> findByTitleContaining(String name);
 }

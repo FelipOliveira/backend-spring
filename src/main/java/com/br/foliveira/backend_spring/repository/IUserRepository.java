@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 import com.br.foliveira.backend_spring.model.User;
 
 @Repository
-public interface UserRepository extends JpaRepository<User, Long> {
+public interface IUserRepository extends JpaRepository<User, Long> {
     Optional<User> findByUsername(String username);
     Boolean existsByUsername(String username);
     Boolean existsByEmail(String email);
