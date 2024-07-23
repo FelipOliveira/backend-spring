@@ -1,4 +1,5 @@
 package com.br.foliveira.backend_spring;
+
 import static org.assertj.core.api.Assertions.assertThat;
 
 import java.util.List;
@@ -38,10 +39,13 @@ public class UserJpaUnitTest {
     @Test
     public void postUser_returnsSavedUserData(){
         User user = new User("name1", "email@test.com", "123456");
+        entityManager.persist(user);
 
-        assertThat(user).hasFieldOrPropertyWithValue("username", "name1");
-        assertThat(user).hasFieldOrPropertyWithValue("email", "email@test.com");
-        assertThat(user).hasFieldOrPropertyWithValue("password", "123456");
+        User userData = repository.findById(user.getId()).orElse(new User());
+
+        assertThat(userData).hasFieldOrPropertyWithValue("username", "name1");
+        assertThat(userData).hasFieldOrPropertyWithValue("email", "email@test.com");
+        assertThat(userData).hasFieldOrPropertyWithValue("password", "123456");
     }
 
     @Test
