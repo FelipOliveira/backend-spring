@@ -22,7 +22,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Table(name = "users",
+@Table(name = "t_users",
 uniqueConstraints = {
     @UniqueConstraint(columnNames = "email")
 })
@@ -58,7 +58,7 @@ public class User {
     private Set<Job> jobs = new HashSet<>();
     
     @ManyToMany(fetch = FetchType.LAZY)
-    @JoinTable(name = "users_roles", 
+    @JoinTable(name = "t_users_roles", 
                 joinColumns = @JoinColumn(name = "user_id"),
                 inverseJoinColumns = @JoinColumn(name = "role_id"))
     private Set<Role> roles = new HashSet<>();
