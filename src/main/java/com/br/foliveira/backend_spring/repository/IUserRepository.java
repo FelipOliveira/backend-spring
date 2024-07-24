@@ -8,7 +8,7 @@ import com.br.foliveira.backend_spring.model.User;
 
 @Repository
 public interface IUserRepository extends JpaRepository<User, Long> {
-    List<User> findByUsername(String username);
+    List<User> findByUsernameContaining(String username);
     Boolean existsByUsername(String username);
     Boolean existsByEmail(String email);
 }
